@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: linda
+    runtime: docker
+    plan: free            # free plan has NO persistent disk: data resets on redeploy/restart. Use plan: starter + disk below for real use.
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /data
+      - key: PAYMENT_MODE
+        value: test       # set to "stripe" once Stripe is implemented (see payments.js)
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
+    # disk:               # requires a paid plan
+    #   name: linda-data
+    #   mountPath: /data
+    #   sizeGB: 1

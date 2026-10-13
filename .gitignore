@@ -1,0 +1,21 @@
+node_modules
+data
+.admin-credentials
+bin
+node_modules/
+data/
+*.db
+.admin-credentials
+tunnel*
+bin/
+uploads/
+
+# non-app files
+*.log
+application-facts.md
+batch*.txt
+investor*
+investors*
+*.csv
+.admin-credentials*
+yc-*
